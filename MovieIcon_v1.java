@@ -11,7 +11,8 @@
 //http://static5.tv.nu/_graphics/m15.gif
 //http://static5.tv.nu/_graphics/my.gif
 //http://www.tv.nu/_css/_compiled_wide.css?v=6020
-//asset was not added in the previous commit as I thought you were only looking for the logic 
+//asset was not added in the previous commit as I thought you were only looking for the logic. 
+//In this test case, if Assert fails,it will be caught in the exception block and alerted with a warning in console. This type of warnings could be sent over email, text or what ever the way you need.
 
 package tv.nu;
 
