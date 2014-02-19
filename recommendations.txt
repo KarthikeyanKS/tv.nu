@@ -1,0 +1,6 @@
+Task 3:
+~~~~~~~
+We can validate following scenarios for tv.nu to ensure qulaity
+1. Page refresh validation
+2. Broken links validation
+3. Description of the programs listed under channels.
