@@ -50,6 +50,8 @@ public void savelinksinExcel(){
 	  try{
 	  for(WebElement templinkelement: links){
 		  	linkURL[i] = templinkelement.getAttribute("href");
+		  	if(linkURL[i].equals("javascript:void(0)")||linkURL[i].equals("null")||linkURL[i].equals("javascript:;")){continue;}
+		  	
 		  	FileInputStream file = new FileInputStream(new File("C:\\QA\\ws\\nu\\src\\test\\resources\\test.xls"));
 		    HSSFWorkbook workbook = new HSSFWorkbook(file);
 		    HSSFSheet sheet = workbook.getSheetAt(0);
