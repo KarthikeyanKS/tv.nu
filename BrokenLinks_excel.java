@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public void savelinksinExcel(){
 		    
 		     URL url = new URL(linkURL[i]);
 	         HttpURLConnection httpURLConnect=(HttpURLConnection)url.openConnection();
-	         httpURLConnect.setConnectTimeout(3000); // 3 seconds delay
+	         httpURLConnect.setConnectTimeout(6000); // 6 seconds delay
 	         httpURLConnect.connect();
 	         
 	         	//save response code 
@@ -81,7 +82,7 @@ public void savelinksinExcel(){
 	          } else {		
 	        	
 //	        	 org.testng.Assert.assertTrue(true,linkURL[i]+"   <----  This URL is good: Got the response code:  "+httpURLConnect.getResponseCode());
-	        	// Reporter.log(linkURL[i]+"   <----  This URL is good: Got the response code:  "+httpURLConnect.getResponseCode(),true);  
+	        	 Reporter.log(linkURL[i]+"   <----  This URL is good: Got the response code:  "+httpURLConnect.getResponseCode(),true);  
 	          }
 	       
 
@@ -97,12 +98,14 @@ public void savelinksinExcel(){
 	  }catch (FileNotFoundException e) {
 		    e.printStackTrace();
 	  } 
-	    catch (IOException e) {
+	    catch (MalformedURLException e) {
 	     e.printStackTrace();
 	 }
 	    catch (HeadlessException e){
 	     e.printStackTrace();
-	 }	
+	 }	catch (IOException e){
+		 e.printStackTrace();
+	 }
 	    
 	}
 @AfterMethod
