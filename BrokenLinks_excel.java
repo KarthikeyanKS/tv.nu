@@ -41,16 +41,23 @@ public void savelinksinExcel(){
 	  //driver.manage().window().maximize();
 	  
 	  List<WebElement> links = driver.findElements(By.tagName("a"));
-	  //System.out.println("Total links in the page ---- "+links.size());
+	  System.out.println("Total links in the page ---- "+links.size());
 	  
 	
 	String linkURL[]= new String[links.size()];
 	  int i = 0;
 	  
+//	  for(WebElement templinkelement: links){
+//		  	linkURL[i] = templinkelement.getAttribute("href");
+//		  	if(linkURL[i].equals("javascript:void(0)")||linkURL[i].equals("null")||linkURL[i].equals("javascript:;")){continue;}
+//		  	Reporter.log(i+" link is ---------"+ linkURL[i],true);
+//		  	i++;}
+//	  i = 0;
 	  try{
 	  for(WebElement templinkelement: links){
 		  	linkURL[i] = templinkelement.getAttribute("href");
 		  	if(linkURL[i].equals("javascript:void(0)")||linkURL[i].equals("null")||linkURL[i].equals("javascript:;")){continue;}
+		  	//Reporter.log(i+" link is ---------"+ linkURL[i],true);
 		  	
 		  	FileInputStream file = new FileInputStream(new File("C:\\QA\\ws\\nu\\src\\test\\resources\\test.xls"));
 		    HSSFWorkbook workbook = new HSSFWorkbook(file);
@@ -64,7 +71,7 @@ public void savelinksinExcel(){
 		    
 		     URL url = new URL(linkURL[i]);
 	         HttpURLConnection httpURLConnect=(HttpURLConnection)url.openConnection();
-	         httpURLConnect.setConnectTimeout(6000); // 6 seconds delay
+	         httpURLConnect.setConnectTimeout(3000); // 6 seconds delay
 	         httpURLConnect.connect();
 	         
 	         	//save response code 
