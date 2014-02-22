@@ -67,6 +67,7 @@ public class MovieIcon {
 	  } 
 	  catch (Throwable e){
 		  System.out.println("Warning ---- Film Strip image for the listed films are not displayed properly ---- "+e);
+		  Reporter.log("Warning ---- Film Strip image for the listed films are not displayed properly ",true);
 	  }
 	  
 	  //mycheck = false;
