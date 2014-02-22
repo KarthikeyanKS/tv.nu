@@ -36,6 +36,7 @@ public void validateFutureBroadcast() {
   	  
 	}catch (Throwable e){
 		System.out.println("Warning ----- There are no future broadcasts scheduled for TV8 -- "+e);
+		Reporter.log("Warning ----- There are no future broadcasts scheduled for TV8 --",true);
 	  }
 	finally{
 		driver.quit();
